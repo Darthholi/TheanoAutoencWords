@@ -1,0 +1,54 @@
+\newcommand{\etalchar}[1]{$^{#1}$}
+\begin{thebibliography}{CXWS12}
+
+\bibitem[BBB{\etalchar{+}}10]{bergstra+al:2010-scipy}
+James Bergstra, Olivier Breuleux, Fr{\'{e}}d{\'{e}}ric Bastien, Pascal Lamblin,
+  Razvan Pascanu, Guillaume Desjardins, Joseph Turian, David Warde-Farley, and
+  Yoshua Bengio.
+\newblock Theano: a {CPU} and {GPU} math expression compiler.
+\newblock In {\em Proceedings of the Python for Scientific Computing Conference
+  ({SciPy})}, June 2010.
+\newblock Oral Presentation.
+
+\bibitem[BLP{\etalchar{+}}12]{Bastien-Theano-2012}
+Fr{\'{e}}d{\'{e}}ric Bastien, Pascal Lamblin, Razvan Pascanu, James Bergstra,
+  Ian~J. Goodfellow, Arnaud Bergeron, Nicolas Bouchard, and Yoshua Bengio.
+\newblock Theano: new features and speed improvements.
+\newblock Deep Learning and Unsupervised Feature Learning NIPS 2012 Workshop,
+  2012.
+
+\bibitem[CXWS12]{DBLP:journals/corr/abs-1206-4683}
+Minmin Chen, Zhixiang~Eddie Xu, Kilian~Q. Weinberger, and Fei Sha.
+\newblock Marginalized denoising autoencoders for domain adaptation.
+\newblock {\em CoRR}, abs/1206.4683, 2012.
+
+\bibitem[dSG]{dos2014deep}
+C{\i}cero~Nogueira dos Santos and Ma{\i}ra Gatti.
+\newblock Deep convolutional neural networks for sentiment analysis of short
+  texts.
+
+\bibitem[HS11]{TOPS:TOPS1109}
+Geoffrey Hinton and Ruslan Salakhutdinov.
+\newblock Discovering binary codes for documents by learning deep generative
+  models.
+\newblock {\em Topics in Cognitive Science}, 3(1):74--91, 2011.
+
+\bibitem[LB08]{Larochelle:2008:CUD:1390156.1390224}
+Hugo Larochelle and Yoshua Bengio.
+\newblock Classification using discriminative restricted boltzmann machines.
+\newblock In {\em Proceedings of the 25th International Conference on Machine
+  Learning}, ICML '08, pages 536--543, New York, NY, USA, 2008. ACM.
+
+\bibitem[RS08]{Ranzato:2008:SLC:1390156.1390256}
+Marc'~Aurelio Ranzato and Martin Szummer.
+\newblock Semi-supervised learning of compact document representations with
+  deep networks.
+\newblock In {\em Proceedings of the 25th International Conference on Machine
+  Learning}, ICML '08, pages 792--799, New York, NY, USA, 2008. ACM.
+
+\bibitem[ZL15]{DBLP:journals/corr/ZhangL15}
+Xiang Zhang and Yann LeCun.
+\newblock Text understanding from scratch.
+\newblock {\em CoRR}, abs/1502.01710, 2015.
+
+\end{thebibliography}

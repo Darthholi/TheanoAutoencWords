@@ -1,0 +1,1022 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Words learning using deep structures
+\end_layout
+
+\begin_layout Date
+16.5.2015
+\end_layout
+
+\begin_layout Subsection*
+Text and machine learning
+\end_layout
+
+\begin_layout Standard
+To represent text for machinelearning, the basic choices are:
+\end_layout
+
+\begin_layout Itemize
+Bag of words and such basic techniques
+\end_layout
+
+\begin_layout Itemize
+Gramatic models
+\end_layout
+
+\begin_layout Itemize
+Complex ideas - like, for example letting the net learn gramatics on itself
+\end_layout
+
+\begin_layout Standard
+The basic usage of a text processing is to classify a text or to extract
+ usefull information from a text or to cluster texts to label some data
+ (for later fast document retrieval or for finding similar documents).
+\end_layout
+
+\begin_layout Standard
+Clustering can serve for example as an sentient analysis, the article 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "dos2014deep"
+
+\end_inset
+
+ uses sequential representation of data and special dictionary for words
+ and characters.
+\end_layout
+
+\begin_layout Standard
+More abstract processing includes, as said, understanding a text without
+ any model - the work 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "DBLP:journals/corr/ZhangL15"
+
+\end_inset
+
+ uses transformation of a character in a column of image and then applies
+ convolutional neural networks (in magnitudes, there are 1000 frames used
+ and 1000 neurons in fully connected layers).
+\end_layout
+
+\begin_layout Subparagraph*
+To cluster text data
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset citation
+LatexCommand cite
+key "TOPS:TOPS1109"
+
+\end_inset
+
+ uses RBM to find similar documents based on word count (TF-IDF) with the
+ additional ideas on how to make the codes binary and another pretraining
+ phase when all the RBM layers are unfolded and trained together.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+1502.01710v2.pdf 9 layers deep with 6 convolutional layers and 3 fully con.
+ number of units 1024; frames in conv - 1024; augmentation using thesarus
+ (better than denoising autoenc)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+hinton et al topics pdf For instance, you might want to use find a compressed
+ text representation that clusters togethe similar documents (i.e.
+ similar diagnosis): by this means you can use the label of the nearest
+ labelled sample (or more than one) to attach a label to an unlabeled document.
+ An example of a deep RBM to finding such representation is here: http://onlinel
+ibrary.wiley.com/doi/10.1111/j.1756-8765.2010.01109.x/full 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Larochelle:2008:CUD:1390156.1390224"
+
+\end_inset
+
+ is another example on using RBMs to directly classify text in the form
+ of bag of words.
+ The ideas in this paper are also about using discriminative version of
+ RBM (based on infering another probability) to use for unsupervised and
+ semisupervised learning.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Quotation
+Should you want to use RBM directly to classify text, have a look at this:
+ http://www.cs.toronto.edu/~larocheh/publications/icml-2008-discriminative-rbm.pdf
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset citation
+LatexCommand cite
+key "DBLP:journals/corr/abs-1206-4683"
+
+\end_inset
+
+ use faster version of denoising autoencoders (where the pretraining can
+ be done in one iteration, because the nonlinear function is separated from
+ the autoencoder), uses bag of words.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+A very simple approach to finding sparse document representations using
+ stacked autoencoders within a text classification task is here: http://www.cse.wu
+stl.edu/~mchen/papers/msdadomain.pdf
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Ranzato:2008:SLC:1390156.1390256"
+
+\end_inset
+
+ proposes a deep network specifically designed to process word counts (compact
+ representation from bag of words and then tricks including poisson regressor).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+p792renzato.pdf This other work here, instead, show how to use deep learning
+ for text classification using only few labelled samples and much non-labelled
+ data: http://dl.acm.org/citation.cfm?id=1390256 ...
+\end_layout
+
+\begin_layout Plain Layout
+ma tam husty triky jako poisson regressor atp.
+ Mohlo by fungovat i na moji architekturu.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+The Idea
+\end_layout
+
+\begin_layout Standard
+Gramatic models would require different plugins for different languages
+ and bag of words needs big input space (as much as the number of words)
+ and does not preserve word order.
+\end_layout
+
+\begin_layout Standard
+This idea to try comes from the phrase 
+\begin_inset Quotes eld
+\end_inset
+
+seinsctits hvae descroveid, taht a hmaun can raed txet, wrhee the biginenngs
+ and egnidns are the smae, but the mdidels are mgeland in a crzay way" (with
+ a hint to try ones own mother toungue to read faster).
+\end_layout
+
+\begin_layout Standard
+This gives exact representation of a word - just the frequency of characters
+ and beginning and ending character.
+\end_layout
+
+\begin_layout Standard
+To translate it to neural network - alphabet of 26 characters gives 52 neurons
+ per word.
+ First 26 are frequencies (the most frequent from the dictionary being 7
+ times 's' due to english constructions like 
+\begin_inset Quotes eld
+\end_inset
+
+uselessnessess") and the last 26 are just sum of vectorized first and last
+ character (putting just the characters there would tell the network, that
+ z is 26 times a and thats misleading).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $r:\,\mathcal{A}^{\infty}\rightarrow\mathcal{B}\subset\mathbb{R}^{2\cdot|\mathcal{A}|}:\,word\in\mathcal{A}^{\infty}\rightarrow r(word)\in\mathcal{B}:\,r(word)=\left(\sum_{c\in|\mathcal{A}|}vec(c)\cdot\sum_{i=0}^{len(word)}\delta_{vec(word_{[i]}),vec(c)},vec(word_{[0]})+vec(word_{[len(word)]})\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $vec:\,\mathcal{A}\rightarrow\mathbb{R}^{|\mathcal{A}|}:\,vec(c)_{i}=\delta_{i,ord(c)}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ord(c):\,\mathcal{A}\rightarrow\mathbb{R}:\,|\{x\in\mathcal{A},\,x<_{\mathcal{A}}c\}|$
+\end_inset
+
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ (lexicographical order of character c)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\delta_{a,b}:1\mbox{ if a=b,}0\mbox{ otherwise}$
+\end_inset
+
+ ...
+ kronecker delta
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $word_{[i]}:\mbox{ i-th character of word}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $len(word)$
+\end_inset
+
+ ...
+ length of a word
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathcal{A}$
+\end_inset
+
+ ...
+ set of characters (ordered by 
+\begin_inset Formula $<_{\mathcal{A}}$
+\end_inset
+
+ and terminated by the greatest element
+\begin_inset Formula $\infty_{\mathcal{A}}$
+\end_inset
+
+), 
+\begin_inset Formula $\mathcal{A}^{\infty}$
+\end_inset
+
+ set containing all possible words made from alphabet.
+\end_layout
+
+\begin_layout Paragraph*
+Justification:
+\end_layout
+
+\begin_layout Enumerate
+uniqueness - from an english dictionary consisting of 109581 words, the
+ collisions are just 7: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+doorstops doorposts
+\end_layout
+
+\begin_layout Itemize
+kleig klieg
+\end_layout
+
+\begin_layout Itemize
+noncasual noncausal
+\end_layout
+
+\begin_layout Itemize
+organization's organizations
+\end_layout
+
+\begin_layout Itemize
+regains reginas
+\end_layout
+
+\begin_layout Itemize
+snakes sneaks
+\end_layout
+
+\begin_layout Itemize
+teazles teazels
+\end_layout
+
+\begin_layout Standard
+(From a Czech dictionary consisting of 300000 words, the number of collisions
+ are 43.)
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+seemingly nice properties - every word has a fixed length, the codes are
+ mostly sparse (not many words using all 26 characters of alphabet) and
+ we should be able to reconstruct the word from its code.
+ Even when the code is altered a bit (this could be an idea for next analysis
+ - how big is the distance between existing words and how much can we perturb
+ the codeword without translating him to another word).
+\end_layout
+
+\begin_layout Enumerate
+philosophical:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+The humans can read it that way and even for a human, the collision - words
+ are difficult to seprate, requiring more attention reading (thats why they
+ are presented above).
+ Interesting idea for infield work could be to record childs mistakes in
+ primary schools in reading lessons to see, if the word being read is similar
+ to the written word; in meaning of this encoding space similarity.
+\end_layout
+
+\begin_layout Itemize
+It is okay to allow this small percentage of collisions, if we have lots
+ of data
+\end_layout
+
+\begin_layout Itemize
+If we consider human being a level that we would like to achieve, then lets
+ use a representation, the human 
+\begin_inset Quotes eld
+\end_inset
+
+obviously
+\begin_inset Quotes erd
+\end_inset
+
+ uses
+\end_layout
+
+\end_deeper
+\begin_layout Paragraph*
+The process
+\end_layout
+
+\begin_layout Standard
+At this point we have various sequences of words and so we can use any technique
+ for sequential data.
+ Lets obtain the first results on simple approach and let more complicated
+ models (long short term memory, recurrent neural networks, echo state networks)
+ for later.
+ Also it is needed to say, that now we can use also convolutional methods,
+ because each paragraph can be translated to image 52 x number-of-words.
+\end_layout
+
+\begin_layout Subparagraph*
+Different possibilities
+\end_layout
+
+\begin_layout Standard
+The representation of data is sparse.
+ That means, that denoising autoencoders would waste resources replacing
+ zeros by zeros.
+ Better idea is to use thesarus and replace words with synonyms.This representati
+on is also suited for convolutional networks (possible variations include
+ rearranging of numbers in the codeword).
+\end_layout
+
+\begin_layout Standard
+Normalization of the data can be also done differently.
+ The divisor can be the most frequent used character, or every character
+ can have its own normalization.
+ It might not be advised to use binary RBMs for pretraining, because shorter
+ words will be everytime clamped to zero.
+ (But the possibility to use RBM after an autoencoder can be reasonable.)
+\end_layout
+
+\begin_layout Paragraph*
+Moving window
+\end_layout
+
+\begin_layout Standard
+Lets say, that we will select a constant number of words (in the scripts
+ it will be 52 words) at the input to the network and then let it process
+ the data in the following matter.
+\end_layout
+
+\begin_layout Standard
+From each 
+\begin_inset Quotes eld
+\end_inset
+
+row" of original data (paragraph of variable number of words) we will feed
+ the network more times, according to the specified moving window speed
+ (extreme case being speed of one producing as many inputs as there are
+ words in the paragraph).
+ If the paragraph is shorter, than the window length, we will think of it
+ as if it was repeated again at the end (sufficient number of times).
+\end_layout
+
+\begin_layout Standard
+Or, in pseudo-C++ code:
+\end_layout
+
+\begin_layout LyX-Code
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+for (int GeneratedInputID=0;GeneratedInputID<WordsInThisStatement;GeneratedInput
+ID++)
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (int i=0;i<xWindowWidth;i++)//one word at a time
+\end_layout
+
+\begin_layout Plain Layout
+
+	{
+\end_layout
+
+\begin_layout Plain Layout
+
+		BYTE *xInWord=Words52ByteData+((i+GeneratedInputID)%WordsInThisStatement);
+\end_layout
+
+\begin_layout Plain Layout
+
+		PushInput(xInWord,pTargetPtr)
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Needed to say, that this way we obtain lots of inputs easily (that all do
+ have the same output, if we are for supervised learning).
+ Moreover, in the end we can benefit from effects known for ensemble methods,
+ because we can just average the predicted output over all generated inputs
+ from a single paragraph.
+\end_layout
+
+\begin_layout Paragraph*
+The data of interest
+\end_layout
+
+\begin_layout Standard
+If we build a deep neural network with stacked autoencoders at the beginnning
+ (with pretraining phase) and logistic regression layer at the output (with
+ finetuning phase, for supervised classification tasks), we will be interested
+ not only in the output, but also in the values before.
+ If we let the autoencoder to have really tight number of neurons, we an
+ force the network, to actually paint the input to lowerdimensional space
+ for us.
+\end_layout
+
+\begin_layout Paragraph*
+The implementation
+\end_layout
+
+\begin_layout Standard
+The data are read from csv files using custom C++ library and fed to theano-base
+d (
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Bastien-Theano-2012,bergstra+al:2010-scipy"
+
+\end_inset
+
+) neural network in python (the interface is the cdll module).
+ (Because the data will never fit in the memory, it doesnt matter if we
+ read them in small or big chunks.)
+\end_layout
+
+\begin_layout Subsubsection*
+The test cases
+\end_layout
+
+\begin_layout Paragraph*
+DBpedia
+\end_layout
+
+\begin_layout Standard
+The dataset contains about 600000 text data with 14 classes.
+ Can be used for supervised learning and unsupervised classification with
+ the possibility to see how classes are distributed.
+\end_layout
+
+\begin_layout Standard
+(The dataset is the dataset used in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "DBLP:journals/corr/ZhangL15"
+
+\end_inset
+
+, original downloadable from 
+\begin_inset CommandInset href
+LatexCommand href
+target "https://drive.google.com/open?id=0Bz8a_Dbh9QhbQXNVcTY3cTkzSTA&authuser=0"
+
+\end_inset
+
+, the version used here is preprocessed to get rid of UTF8 encoding.)
+\end_layout
+
+\begin_layout Paragraph*
+Orders and cancelling
+\end_layout
+
+\begin_layout Standard
+We do have a database of service orders (service helping students with courses),
+ that can be cancelled and the corresponding information if the order was
+ executed or cancelled.
+ The owner is interested, if he can see, based on what and how the applicants
+ write, if the order is likely to be cancelled or not.
+ This case might be, needed to say, difficult, if none such prediction actually
+ exist.
+\end_layout
+
+\begin_layout Standard
+About one fourth of the orders were cancelled and three fourths were executed
+ (just logistic layer over the data gives actually this accuracy).
+\end_layout
+
+\begin_layout Paragraph*
+Obvious
+\end_layout
+
+\begin_layout Standard
+This dataset serves just as a test, if the code and model works.
+ It is just the first 50 rows from dbpedia dataset with randomly inserted
+ word 
+\begin_inset Quotes eld
+\end_inset
+
+cptobvious" and target value of 1 if the word was inserted to this row.
+\end_layout
+
+\begin_layout Subsubsection*
+The test models
+\end_layout
+
+\begin_layout Standard
+The test models are the following:
+\end_layout
+
+\begin_layout Standard
+Smaller convolutional neural network:
+\end_layout
+
+\begin_layout Itemize
+convoltional layer - 20 frames, kernel 5x5
+\end_layout
+
+\begin_layout Itemize
+Max Pooling - 2x2
+\end_layout
+
+\begin_layout Itemize
+convoltional layer - 30 frames, kernel 5x5
+\end_layout
+
+\begin_layout Itemize
+Max Pooling - 2x2
+\end_layout
+
+\begin_layout Itemize
+convoltional layer - 20 frames, kernel 5x5
+\end_layout
+
+\begin_layout Itemize
+Max Pooling - 2x2
+\end_layout
+
+\begin_layout Itemize
+Fully connected sigmoid layer, 500 neurons
+\end_layout
+
+\begin_layout Itemize
+...followed by logistic regression to apropriate number of classes.
+\end_layout
+
+\begin_layout Standard
+Bigger convolutional neural network:
+\end_layout
+
+\begin_layout Itemize
+convoltional layer - 30 frames, kernel 5x5
+\end_layout
+
+\begin_layout Itemize
+Max Pooling - 2x2
+\end_layout
+
+\begin_layout Itemize
+convoltional layer - 40 frames, kernel 5x5
+\end_layout
+
+\begin_layout Itemize
+Max Pooling - 2x2
+\end_layout
+
+\begin_layout Itemize
+convoltional layer - 50 frames, kernel 5x5
+\end_layout
+
+\begin_layout Itemize
+Max Pooling - 2x2
+\end_layout
+
+\begin_layout Itemize
+Fully connected sigmoid layer, 1000 neurons
+\end_layout
+
+\begin_layout Itemize
+...followed by logistic regression to apropriate number of classes.
+\end_layout
+
+\begin_layout Standard
+Autoencoder with 20 pretraining epochs without contraction or corruption:
+\end_layout
+
+\begin_layout Itemize
+3000 neurons, sigmoid
+\end_layout
+
+\begin_layout Itemize
+4000 neurons, sigmoid
+\end_layout
+
+\begin_layout Itemize
+3000 neurons, sigmoid
+\end_layout
+
+\begin_layout Itemize
+2000 neurons, sigmoid
+\end_layout
+
+\begin_layout Itemize
+1000 neurons, sigmoid
+\end_layout
+
+\begin_layout Itemize
+500 neurons, sigmoid
+\end_layout
+
+\begin_layout Itemize
+200 neurons, sigmoid
+\end_layout
+
+\begin_layout Itemize
+100 neurons, sigmoid
+\end_layout
+
+\begin_layout Itemize
+...followed by logistic regression to apropriate number of classes.
+\end_layout
+
+\begin_layout Standard
+Autoencoder of the same architecture with 0.1, 0.2 levels of contraction for
+ first two layers.
+\end_layout
+
+\begin_layout Standard
+All the models use the said moving window, which moves at a speed of 47
+ words (that is 52 window width minus 5 size of convolutional layer).
+ Future tests could include a moving window of speed 1 leading to big number
+ of inputs.
+ (In addition, convolutional nets can be run in normalzied and unnormalized
+ versions.)
+\end_layout
+
+\begin_layout Standard
+Learning rate was chosen to be 0.1 in all cases, for autoencoder, the number
+ of pretraining epochs were 20 with a learning rate of 0.001.
+\end_layout
+
+\begin_layout Standard
+Batch sizes were chosen to be 361, size of training dataset was 649800 and
+ testing and validation sets are 238260 items each.
+\end_layout
+
+\begin_layout Paragraph*
+The results
+\end_layout
+
+\begin_layout Standard
+Convolutional neural networks proved, that the model can learn, progress
+ (in a week of training only on CPU, not GPU) from initial 90% errors to
+\end_layout
+
+\begin_layout Itemize
+51.41% validation error, 52.42% test error for bigger convolutional network
+ 
+\end_layout
+
+\begin_layout Itemize
+and 53.80% validation, 55.23% for smaller network on dbpeadia dataset
+\end_layout
+
+\begin_layout Standard
+That means, that the original representation has the capacity to improve
+ with more neurons.
+ To compare to the best accuracy score of 98.40% on dbpedia dataset (
+\begin_inset CommandInset citation
+LatexCommand cite
+key "DBLP:journals/corr/ZhangL15"
+
+\end_inset
+
+), it needs to be said, that the work uses roughly hundred times more frames
+ for convolution and two times more layers (6 covolutional, 3 fully connected).
+\end_layout
+
+\begin_layout Standard
+Interestingly, autoencoder's cost function (average of cross entropy of
+ the reconstruction) went right down on the first layer, but on the succesive
+ layers, its descent was slower.
+ Its final accuracy was <will be added>
+\end_layout
+
+\begin_layout Standard
+After the pretraining, the autoencoder groupped together for example, these
+ texts: <will be added>
+\end_layout
+
+\begin_layout Standard
+The obvious dataset gave only one interesting observation - the neural network
+ tend to converge faster when the values were not normalized.
+\end_layout
+
+\begin_layout Standard
+The models failed to predict the orders dataset.
+ No signs of any improvement, network just kept guessing.
+ Also even looking at the representation in later layers, after running
+ autoencoder, there was not clear why it assigns some values.
+ Given a second look that it did work on all the other datasets, maybe the
+ target values are, in fact, not predictable from the text.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Pridat slajdy s definici problemu (18 slajdu), takze tam dam vsechny ty
+ problemy co bych chtel aby to umelo
+\end_layout
+
+\begin_layout Plain Layout
+rict 10 dni pred zkouskou
+\end_layout
+
+\begin_layout Plain Layout
+bude chtit odvodit modely
+\end_layout
+
+\begin_layout Plain Layout
+...
+\end_layout
+
+\begin_layout Plain Layout
+muzu pridat ze FANN
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+1) Provide a formal description (i.e use math) of the idea in Section 2;
+ describe the bag of words approach and you proposed approach, using formulas
+ and figures.
+\end_layout
+
+\begin_layout Plain Layout
+- To use math - I do feel like using the math in this special case is making
+ the description more complicated (Eq1.png) 
+\end_layout
+
+\begin_layout Plain Layout
+- what to put to figures????
+\end_layout
+
+\begin_layout Plain Layout
+- Describe bag of words - To which much extent can I pressupose the basic
+ course knowledge in the report? In all the papers there is no description
+ of bag of words, thats what is confusing!
+\end_layout
+
+\begin_layout Plain Layout
+...
+\end_layout
+
+\begin_layout Plain Layout
+2) Described the system in Section 3 by discussing the computational learning
+ model used (again with pics and math) and why it has been choses (why is
+ adequate).
+ Provide some graph work that describes the all system.
+ Describe the basics of the software that you have used.
+\end_layout
+
+\begin_layout Plain Layout
+- By computation learning model, do you mean the models described at 3.0.2?
+ - half of page to explain what it is, resources, picture (I had a description
+ of experiment - co jsem tam mel jde do experimentu)
+\end_layout
+
+\begin_layout Plain Layout
+- discussing the computational learning model -??? - what to put to math
+ and pics?
+\end_layout
+
+\begin_layout Plain Layout
+- why it has been chosen - Iam kind of afraid to write "used because I was
+ able to make them in time"....
+\end_layout
+
+\begin_layout Plain Layout
+- graph work describing the whole system - ???? like a picture of a neural
+ network??? - graph conv nn
+\end_layout
+
+\begin_layout Plain Layout
+...
+\end_layout
+
+\begin_layout Plain Layout
+3) Experiments: provide a description of the dataset being used; succintly
+ discussed the configurations of the learning system being tested and describe
+ the details of the cross-validation process (how many folds, number of
+ training instances, range of values for the hyperparameters and which values
+ have been selected by the CV process).
+\end_layout
+
+\begin_layout Plain Layout
+- provide a description of the dataset being used - 
+\begin_inset Quotes eld
+\end_inset
+
+3.0.1.
+ the test cases
+\begin_inset Quotes erd
+\end_inset
+
+ are not sufficient? What else to put there? -----long description, sparse
+ classes, kind of information, 
+\end_layout
+
+\begin_layout Plain Layout
+- succintly discussed the configurations of the learning system being tested....
+ what else should I write there in section 3.0.2? (in point 2)
+\end_layout
+
+\begin_layout Plain Layout
+- Crossvalidation was not used :( (3 fold validatin was used)
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "ZhangL15,10111111x,1390224,abs-1206-4683,1390256,scholar,theano1,theano2"
+options "alpha"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899.12.30 00:00:00.000.249,=D:\Data\Projects\WordsAndNN\FANN\uWordy.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.341,=C:\Users\Martin\Documents\RAD Studio\Projects\Project1.res</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.599,=C:\Users\Martin\Documents\RAD Studio\Projects\Project1.res</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.111,=C:\Users\Martin\Documents\RAD Studio\Projects\Unit1.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.527,=C:\Users\Martin\Documents\RAD Studio\Projects\File1.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.397,=C:\Users\Martin\Documents\RAD Studio\Projects\Unit1.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.189,=C:\Users\Martin\Documents\RAD Studio\Projects\Unit1.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.033,=D:\Data\Projects\WordsAndNN\FANN\wordylib.res</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.260,=D:\Data\Projects\WordsAndNN\FANN\uWordyReader.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.513,D:\Data\Projects\WordsAndNN\FANN\wordylib.cbproj=C:\Users\Martin\Documents\RAD Studio\Projects\Project1.cbproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.207,D:\Data\Projects\WordsAndNN\FANN\wordydll.cpp=C:\Users\Martin\Documents\RAD Studio\Projects\File1.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.161,=C:\Users\Martin\Documents\RAD Studio\Projects\Project1.res</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.191,=D:\Data\Projects\WordsAndNN\wordylib\File1.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.463,D:\Data\Projects\WordsAndNN\wordylib\File1.h=D:\Data\Projects\WordsAndNN\wordylib\wordydll.h</Transaction>
+  </Transactions>
+</BorlandProject>
